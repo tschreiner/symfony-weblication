@@ -16,3 +16,10 @@
 
 # PHPStorm
 /.idea/
+
+# Weblication
+/web/cloud/
+/web/weblication/
+/web/favicon.ico
+/web/*-*-*-*/
+/web/*-*-*-*-*/
