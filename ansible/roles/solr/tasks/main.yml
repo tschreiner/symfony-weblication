@@ -1,0 +1,26 @@
+---
+- name: download source
+  get_url: url=http://mirror.synyx.de/apache/lucene/solr/5.0.0/solr-5.0.0.tgz
+           dest=/tmp/solr-5.0.0.tgz
+           force=no
+
+- name: extract archive
+  command: tar xfz solr-5.0.0.tgz chdir=/tmp/ creates=/tmp/solr-5.0.0/README.txt
+
+- name: install service
+  shell: /tmp/solr-5.0.0/bin/install_solr_service.sh /tmp/solr-5.0.0.tgz
+         creates=/etc/init.d/solr
+
+- name: setup demo core dir on solr
+  file: path={{ item }} state=directory owner=solr group=solr recurse=true
+  with_items:
+    - /var/solr/data/demo-core
+    - /var/solr/data/demo-core/conf
+
+- name: setup demo core on solr
+  file: src=/vagrant/solr/config/search/{{ item }} dest=/var/solr/data/demo-core/{{ item }} state=link force=yes
+  with_items:
+    - 'core.properties'
+    - 'conf/solr-config.xml'
+    - 'conf/solr-schema.xml'
+  notify: restart solr

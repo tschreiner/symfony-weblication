@@ -1,0 +1,8 @@
+- name: Install oxid
+  sudo: yes
+  shell: oxrun install:shop --dbUser=application --dbPwd=application --dbName=application --installationFolder=/vagrant/web --shopURL={{shopurl}} --adminUser=admin@local.oxrun --adminPassword=oxrunpassword
+
+- name: Set permissions
+  sudo: yes
+  shell: chown -R www-data:www-data /vagrant/web
+  when: inventory_hostname == "remote"

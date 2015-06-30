@@ -1,0 +1,10 @@
+---
+- name: Add ppa Repository (ruby)
+  apt_repository: repo=ppa:brightbox/ruby-ng update_cache=yes
+
+- name: Install Ruby Packages
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - ruby1.9.3
+    - libsqlite3-dev
+    - ruby-bundler

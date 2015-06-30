@@ -1,0 +1,4 @@
+---
+- name: Install oxrun
+  sudo: yes
+  shell: wget --no-check-certificate https://raw.githubusercontent.com/marcharding/oxrun/master/oxrun.phar && chmod +x oxrun.phar && mv oxrun.phar /usr/local/bin/oxrun

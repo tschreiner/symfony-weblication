@@ -1,0 +1,3 @@
+- name: Install modman
+  sudo: yes
+  shell: wget --no-check-certificate https://raw.github.com/colinmollenhour/modman/master/modman && chmod +x modman && mv modman /usr/local/bin/modman

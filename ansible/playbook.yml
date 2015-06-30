@@ -1,0 +1,12 @@
+---
+- hosts: all
+  sudo: true
+  roles:
+    - init
+    - ruby
+    - php5-fpm
+    - apache-fpm
+    - mysql
+    - composer
+    - dotfiles
+    - app
