@@ -15,6 +15,8 @@ $loader->unregister();
 $apcLoader->register(true);
 */
 
+include_once __DIR__ . '/weblication/grid.php';
+
 require_once __DIR__.'/../app/AppKernel.php';
 //require_once __DIR__.'/../app/AppCache.php';
 
