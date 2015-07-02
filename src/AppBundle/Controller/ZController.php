@@ -12,8 +12,6 @@ class ZController extends Controller
      * @Route("/{url}", requirements={"url": ".*"}, name="z")
      */
     public function indexAction($url) {
-        // var_dump($_SERVER); exit;
-        // echo 'zcontroller'; exit;
         $path = preg_replace('/\?.*/', '', '/' . $url);
         $file = $_SERVER['DOCUMENT_ROOT'] . $path;
 
