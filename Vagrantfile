@@ -52,6 +52,6 @@ Vagrant.configure("2") do |config|
     end
 
     # see https://github.com/mitchellh/vagrant/issues/4204, but doesn't work well with winnfsd
-    config.vm.synced_folder "./", "/vagrant"
+    config.vm.synced_folder "./", "/vagrant", type: "nfs"
 
 end
