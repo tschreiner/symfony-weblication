@@ -17,6 +17,10 @@
 # PHPStorm
 /.idea/
 
+# Custom Bundles
+/src/
+!/src/AppBundle/
+
 # Weblication
 /web/cloud/
 /web/weblication/
