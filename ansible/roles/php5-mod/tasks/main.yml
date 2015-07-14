@@ -20,7 +20,6 @@
     - php5-mysql
     - php5-readline
     - php5-sqlite
-    - php5-xdebug
     - php5-xsl
     - php5-json
 

@@ -19,3 +19,9 @@ cat /vagrant/ansible/files/authorized_keys >> /home/vagrant/.ssh/authorized_keys
 # We need to do this, because via nfs all files are +x, so we cannot use a simple custom inventory path
 # see http://stackoverflow.com/questions/26859360/cant-use-ansible-inventory-file-because-it-is-executable
 sudo PYTHONUNBUFFERED=1 ansible-playbook --inventory-file=/vagrant/ansible/inventories/development -e hostname=$1 --connection=local --limit vagrant /vagrant/ansible/playbook.yml -vvvv
+
+# create tmp folders
+sudo mkdir -p /dev/shm/app/vendor
+sudo mkdir -p /dev/shm/app/cache
+sudo mkdir -p /dev/shm/app/log
+sudo chown -R www-data:www-data /dev/shm/app
